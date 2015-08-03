@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lion_tamer.name %>
+</p>
+
+<p>
+  <strong>Experience:</strong>
+  <%= @lion_tamer.experience %>
+</p>
+
+<p>
+  <strong>Living:</strong>
+  <%= @lion_tamer.living %>
+</p>
+
+<% unless @lion_tamer.lions.empty? %>
+	<p><%= @lion_tamer.name %> tames these lions:</p>
+	<ul>
+		<% @lion_tamer.lions.map do |l| %>
+			<li><%= link_to l.name, l %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= link_to 'Edit', edit_lion_tamer_path(@lion_tamer) %> |
+<%= link_to 'Back', lion_tamers_path %>

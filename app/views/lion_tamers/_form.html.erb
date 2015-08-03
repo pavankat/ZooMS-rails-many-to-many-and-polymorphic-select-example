@@ -1,0 +1,35 @@
+<%= form_for(@lion_tamer) do |f| %>
+  <% if @lion_tamer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lion_tamer.errors.count, "error") %> prohibited this lion_tamer from being saved:</h2>
+
+      <ul>
+      <% @lion_tamer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :experience %><br>
+    <%= f.number_field :experience %>
+  </div>
+  <div class="field">
+    <%= f.label :living %><br>
+    <%= f.check_box :living %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lion_ids %><br>
+    <%= f.select :lion_ids, @lions.collect{|d| [ "#{d.name}", d.id ]}, { :selected => @lion_tamer.lions.pluck(:id) }, { :multiple => true, :class => 'select2'} %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

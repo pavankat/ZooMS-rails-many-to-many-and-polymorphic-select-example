@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cat_toy.name %>
+</p>
+
+<p>
+	<strong>Owned By:</strong>
+	<%= link_to @cat_toy.toyable.name, @cat_toy.toyable %>
+</p>
+
+<%= link_to 'Edit', edit_cat_toy_path(@cat_toy) %> |
+<%= link_to 'Back', cat_toys_path %>

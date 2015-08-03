@@ -1,0 +1,58 @@
+<h1>Listing lions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Birthdate</th>
+      <th>Name</th>
+      <th>About</th>
+      <th>Weight</th>
+      <th>Health</th>
+      <th>Health notes</th>
+      <th>Tamed By</th>
+      <th>Cat toys owned</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lions.each do |lion| %>
+      <tr>
+        <td><%= lion.birthdate %></td>
+        <td><%= lion.name %></td>
+        <td><%= lion.about %></td>
+        <td><%= lion.weight %></td>
+        <td><%= lion.health %></td>
+        <td><%= lion.health_notes %></td>
+
+        <% if lion.lion_tamers.empty? %>
+          <td></td>
+        <% else %>
+          <td>
+            <% lion.lion_tamers.map do |l| %>
+              <%= link_to l.name, l %>
+            <% end %>
+          </td>
+        <% end %>
+
+        <% if lion.cat_toys.empty? %>
+          <td></td>
+        <% else %>
+          <td>
+            <% lion.cat_toys.map do |ct| %>
+              <%= link_to ct.name, ct %>
+            <% end %>
+          </td>
+        <% end %>
+
+        <td><%= link_to 'Show', lion %></td>
+        <td><%= link_to 'Edit', edit_lion_path(lion) %></td>
+        <td><%= link_to 'Destroy', lion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lion', new_lion_path %>

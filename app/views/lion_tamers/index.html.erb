@@ -1,0 +1,41 @@
+<h1>Listing lion_tamers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Experience</th>
+      <th>Living</th>
+      <th>Lions Being Tamed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lion_tamers.each do |lion_tamer| %>
+      <tr>
+        <td><%= lion_tamer.name %></td>
+        <td><%= lion_tamer.experience %></td>
+        <td><%= lion_tamer.living %></td>
+
+        <% if lion_tamer.lions.empty? %>
+          <td></td>
+        <% else %>
+          <td>
+            <% lion_tamer.lions.map do |l| %>
+              <%= link_to l.name, l %>
+            <% end %>
+          </td>
+        <% end %>
+
+        <td><%= link_to 'Show', lion_tamer %></td>
+        <td><%= link_to 'Edit', edit_lion_tamer_path(lion_tamer) %></td>
+        <td><%= link_to 'Destroy', lion_tamer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lion tamer', new_lion_tamer_path %>

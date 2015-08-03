@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  birthdate: 2015-08-02
+  name: MyString
+  about: MyText
+  weight: 1
+  health: 1
+  health_notes: MyText
+
+two:
+  birthdate: 2015-08-02
+  name: MyString
+  about: MyText
+  weight: 1
+  health: 1
+  health_notes: MyText

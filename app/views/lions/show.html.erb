@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Birthdate:</strong>
+  <%= @lion.birthdate %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lion.name %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @lion.about %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @lion.weight %>
+</p>
+
+<p>
+  <strong>Health:</strong>
+  <%= @lion.health %>
+</p>
+
+<p>
+  <strong>Health notes:</strong>
+  <%= @lion.health_notes %>
+</p>
+
+<% unless @lion.lion_tamers.empty? %>
+  <p><%= @lion.name %> is tamed by these lion tamers:</p>
+  <ul>
+    <% @lion.lion_tamers.map do |l| %>
+      <li><%= link_to l.name, l %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% unless @lion.cat_toys.empty? %>
+  <p><%= @lion.name %> has the following cat toys:</p>  
+
+  <ul>
+    <% @lion.cat_toys.map do |ct| %>
+      <li><%= link_to ct.name, ct %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Edit', edit_lion_path(@lion) %> |
+<%= link_to 'Back', lions_path %>

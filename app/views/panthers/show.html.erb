@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @panther.name %>
+</p>
+
+<p>
+  <strong>Claw length:</strong>
+  <%= @panther.claw_length %>
+</p>
+
+<% unless @panther.cat_toys.empty? %>
+  <p><%= @panther.name %> has the following cat toys:</p>  
+
+  <ul>
+    <% @panther.cat_toys.map do |ct| %>
+      <li><%= link_to ct.name, ct %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Edit', edit_panther_path(@panther) %> |
+<%= link_to 'Back', panthers_path %>

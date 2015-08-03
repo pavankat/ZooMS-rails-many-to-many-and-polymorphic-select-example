@@ -1,0 +1,27 @@
+<%= form_for(@cat_toy) do |f| %>
+  <% if @cat_toy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cat_toy.errors.count, "error") %> prohibited this cat_toy from being saved:</h2>
+
+      <ul>
+      <% @cat_toy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :toyable %><br>
+    <%= f.select :toyable, @cat_collection, { :selected => @selected }, { :class => 'select2'} %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

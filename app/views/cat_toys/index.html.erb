@@ -1,0 +1,28 @@
+<h1>Listing cat_toys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Owned By</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cat_toys.each do |cat_toy| %>
+      <% cacheOwner = cat_toy.toyable %>
+      <tr>
+        <td><%= cat_toy.name %></td>
+        <td><%= link_to "A #{cacheOwner.class} named #{cacheOwner.name}", cacheOwner %></td>
+        <td><%= link_to 'Show', cat_toy %></td>
+        <td><%= link_to 'Edit', edit_cat_toy_path(cat_toy) %></td>
+        <td><%= link_to 'Destroy', cat_toy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cat toy', new_cat_toy_path %>

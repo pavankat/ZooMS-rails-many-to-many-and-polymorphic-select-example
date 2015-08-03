@@ -1,0 +1,41 @@
+<%= form_for(@lion) do |f| %>
+  <% if @lion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lion.errors.count, "error") %> prohibited this lion from being saved:</h2>
+
+      <ul>
+      <% @lion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :birthdate %><br>
+    <%= f.date_select :birthdate %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :about %><br>
+    <%= f.text_area :about %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.number_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :health %><br>
+    <%= f.number_field :health %>
+  </div>
+  <div class="field">
+    <%= f.label :health_notes %><br>
+    <%= f.text_area :health_notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
