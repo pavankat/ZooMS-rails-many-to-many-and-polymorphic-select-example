@@ -49,10 +49,10 @@
 * make a polymorphic relationship among lions, panthers and cat_toys so that
 
 * In panther.rb
-	* has_many :toyables
+	* has_many :cat_toys, :as => :toyable, dependent: :destroy
 
 * In lion.rb
-	* has_many :toyables
+	* has_many :cat_toys, :as => :toyable, dependent: :destroy
 
 * In cat_toy.rb
 	* belongs_to :toyable, :polymorphic => true
