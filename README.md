@@ -1,4 +1,4 @@
-# Many to Many and Polymorphic Selects in Rails 4
+# Many to Many and Polymorphic Select in Rails 4
 
 * we'll do some fun stuff in the cat_toys_controller.rb file to make a polymorphic select work.
 
