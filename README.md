@@ -1,10 +1,15 @@
-# Many to Many and Polymorphic Select in Rails 4
+# Many to Many Multi Select and Polymorphic Select in Rails 4
 
-* we'll do some fun stuff in the cat_toys_controller.rb file to make a polymorphic select work.
+* The Many to Many Multi Select is in ```lion_tamers/_form.html.erb``` and can be viewed from ```localhost:3000/lion_tamers/new```, but you need to seed your DB first - or create a few lions first, then create your lion tamer.
 
-* however, if you want to be really fancy then leverage the global id gem for a polymorphic select: http://stefan.haflidason.com/simpler-polymorphic-selects-in-rails-4-with-global-id/
+* The trick is to have ```:lion_ids => []``` as a param in your ```lion_tamers_controller```. Having ```:lion_ids``` as a param is a mistake and won't work, because the multi select is submitting the values as an array.
+
+* The Polymorphic Select can be viewed from ```localhost:3000/cat_toys/new```, but like above it'll be better if you make some lions and panthers first or seed your DB. The fun stuff is in the ```cat_toys_controller.rb``` file to make the polymorphic select work.
+
+* however, if you want to be really fancy then leverage the global id gem for a polymorphic select, which will be built into rails 4.2 (we're using 4.1.9 now) http://stefan.haflidason.com/simpler-polymorphic-selects-in-rails-4-with-global-id/
 
 # ZooMS RAILS (Zoo Management System)
+* This is an assignment
 
 ## Step 0 - SETUP
 
