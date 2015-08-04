@@ -1,7 +1,9 @@
 class LionTamersController < ApplicationController
   before_action :set_lion_tamer, only: [:show, :edit, :update, :destroy]
 
-  before_action :set_lions, only: [:new, :edit]
+  before_action :set_lions, only: [:new, :edit, :create, :update]
+
+  before_action :fix_params, only: [:create, :update]
 
   # GET /lion_tamers
   # GET /lion_tamers.json
@@ -73,9 +75,12 @@ class LionTamersController < ApplicationController
       @lions = Lion.all
     end
 
+    def fix_params
+      params[:lion_tamer][:lion_ids].delete("")
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def lion_tamer_params
-      params[:lion_tamer][:lion_ids].delete("")
       params.require(:lion_tamer).permit(:name, :experience, :living, :lion_ids => [])
     end
 end
