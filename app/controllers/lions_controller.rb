@@ -26,39 +26,23 @@ class LionsController < ApplicationController
   def create
     @lion = Lion.new(lion_params)
 
-    respond_to do |format|
-      if @lion.save
-        format.html { redirect_to @lion, notice: 'Lion was successfully created.' }
-        format.json { render :show, status: :created, location: @lion }
-      else
-        format.html { render :new }
-        format.json { render json: @lion.errors, status: :unprocessable_entity }
-      end
-    end
+    @lion.save
+
+    redirect_to @lion
   end
 
   # PATCH/PUT /lions/1
   # PATCH/PUT /lions/1.json
   def update
-    respond_to do |format|
-      if @lion.update(lion_params)
-        format.html { redirect_to @lion, notice: 'Lion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @lion }
-      else
-        format.html { render :edit }
-        format.json { render json: @lion.errors, status: :unprocessable_entity }
-      end
-    end
+    @lion.update(lion_params)
+    redirect_to @lion
   end
 
   # DELETE /lions/1
   # DELETE /lions/1.json
   def destroy
     @lion.destroy
-    respond_to do |format|
-      format.html { redirect_to lions_url, notice: 'Lion was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to lions_url
   end
 
   private

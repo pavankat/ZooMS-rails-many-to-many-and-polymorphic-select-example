@@ -10,6 +10,10 @@
 
 # ZooMS RAILS (Zoo Management System)
 * This is an assignment
+* Screencasts here: 
+	1. Going over models, schema, routes, lions, leading into lion_tamers
+		http://screencast.com/t/Bk5Fqi60
+	2. 
 
 ## Step 0 - SETUP
 

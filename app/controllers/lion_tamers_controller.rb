@@ -75,6 +75,7 @@ class LionTamersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lion_tamer_params
+      params[:lion_tamer][:lion_ids].delete("")
       params.require(:lion_tamer).permit(:name, :experience, :living, :lion_ids => [])
     end
 end
