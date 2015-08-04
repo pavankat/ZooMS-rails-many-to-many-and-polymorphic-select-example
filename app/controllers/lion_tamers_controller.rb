@@ -3,8 +3,6 @@ class LionTamersController < ApplicationController
 
   before_action :set_lions, only: [:new, :edit, :create, :update]
 
-  before_action :fix_params, only: [:create, :update]
-
   # GET /lion_tamers
   # GET /lion_tamers.json
   def index
@@ -73,10 +71,6 @@ class LionTamersController < ApplicationController
 
     def set_lions
       @lions = Lion.all
-    end
-
-    def fix_params
-      params[:lion_tamer][:lion_ids].delete("")
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
