@@ -66,6 +66,9 @@ GEM
     mime-types (2.6.1)
     minitest (5.7.0)
     multi_json (1.11.2)
+    passenger (5.0.15)
+      rack
+      rake (>= 0.8.1)
     pg (0.18.2)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -139,6 +142,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   meta_request
+  passenger
   pg
   pry (~> 0.10.1)
   quiet_assets
