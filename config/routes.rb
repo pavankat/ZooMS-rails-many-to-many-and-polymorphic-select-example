@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :shows
+
+  resources :students
+
+  resources :users
+
+  resources :posts
+
   resources :cat_toys
 
   resources :panthers
