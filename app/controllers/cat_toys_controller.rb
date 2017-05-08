@@ -74,6 +74,13 @@ class CatToysController < ApplicationController
       @cat_collection = Lion.all.map {|x| [x.name, "Lion:#{x.id}"]} + Panther.all.map {|x| [x.name, "Panther:#{x.id}"]}
     end
 
+
+
+
+
+
+
+
     def format_it
       saveThis = cat_toy_params #this puts the hash returned from cat_toy_params into saveThis
 

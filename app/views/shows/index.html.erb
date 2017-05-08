@@ -11,7 +11,8 @@
   </thead>
 
   <tbody>
-    <% @shows.each do |show| %>
+    <% binding.pry %>
+    <% @shos.each do |show| %>
       <tr>
         <td><%= show.title %></td>
         <td><%= show.lead_actor %></td>
